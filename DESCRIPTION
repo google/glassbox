@@ -1,0 +1,8 @@
+Package: glassbox
+Date: 2014-01-22
+Title: Glassbox package for RF visualization
+Version: 0.01
+Author: Ben Ogorek <baogorek@google.com>, Estevan Flores <estevanflores@google.com>, Max Ghenis <mghenis@google.com>
+Maintainer: Estevan Flores <estevanflores@google.com>
+Description: Visualization for black box models
+
