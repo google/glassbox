@@ -1,17 +1,3 @@
-# Copyright 2014 Google Inc. All rights reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 # Functions that visualize relationships for black-box models
 
 GetResponse <- function(m) {
@@ -61,9 +47,9 @@ Predict <- function(m, newdata) {
   #   Vector of predictions
   m.class <- class(m)
   if ("lm" %in% m.class) {
-    if (family(m)$family == "binomial") { # Logit
+    if (family(m)$family == "binomial") {  # Logit
       return(predict(m, newdata, type="response"))
-    } else { # Linear regression
+    } else {  # Linear regression
       return(predict(m, newdata))
     }
   } else if ("randomForest" %in% m.class) {
@@ -158,8 +144,7 @@ PerturbNumericColumn <- function(x,
   return(y)
 }
 
-PerturbCategoricalColumn <- function(x,
-                                     col) {
+PerturbCategoricalColumn <- function(x, col) {
   # Replicates data.table multiple times, keeping all but one variable
   # constant while setting a variable of interest to each of its possible values
   #
@@ -169,7 +154,7 @@ PerturbCategoricalColumn <- function(x,
   col.vals <- unique(x[[col]])
   y <- StackDataTable(x, length(col.vals))
   col.vals.expanded <- RepeatElements(col.vals, nrow(x))
-  set(y, , col, col.vals.expanded) # check
+  set(y, , col, col.vals.expanded)  # check
   return(y)
 }
 
